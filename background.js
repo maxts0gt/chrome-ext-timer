@@ -13,6 +13,15 @@ chrome.alarms.onAlarm.addListener(() => {
     chrome.action.setBadgeText({
       text: `${time + 1}`,
     });
+
+    if (time % 1000 === 0) {
+      this.registration.showNotification("Chrome Timer Extension", {
+        body: "1000 seconds has passed!",
+        icon: "icon.png",
+      });
+    }
   });
   //   console.log(alarm);
 });
+
+console.log(this);
